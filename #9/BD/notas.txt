@@ -1,0 +1,160 @@
+Tabla: cargo
+id_car    Identificador único del cargo
+nombre    Nombre del cargo
+salario   Salario correspondiente al cargo
+
+
+Tabla: categoría
+id_cat          Identificador único de la categoría
+nombre          Nombre de la categoría
+descripción     Descripción de la categoría
+
+
+
+Tabla: cliente
+id_cli          Identificador único del cliente
+nombre          Nombre del cliente
+teléfono        Número telefónico del cliente
+
+
+
+1. Tabla compra
+id_com          Identificador único de la compra
+nombre          Nombre o referencia de la compra
+fecha           Fecha de la compra
+cantidad        Cantidad de elementos comprados
+total           Valor total de la compra
+estado          Estado de la compra
+id_fk_emp       Identificador del empleado relacionado
+id_fk_prov      Identificador del proveedor relacionado
+
+
+Tabla empleado
+id_emp         Identificador único del empleado. Se utiliza para     registrar,buscar, editar y eliminar al empleado.            
+
+nombre         Guarda el nombre completo del empleado.                                                                 
+
+telefono       Guarda el número de teléfono del empleado.                                                              
+
+direccion      Guarda la dirección de residencia o contacto del empleado.                                              
+
+email          Guarda el correo electrónico del empleado.                                                              
+
+fecha_contrato Guarda la fecha en la que se realizó el contrato del empleado.                                          
+
+id_fk_car      Identifica el cargo que tiene asignado el empleado. Es el                          campo que relaciona al empleado con un cargo.
+
+
+Datos adicionales recomendados
+
+Podrías agregar posteriormente:
+
+tipo_documento — Indica si la identificación es CC, CE, pasaporte, etc.
+numero_documento — Número de identificación del empleado.
+fecha_nacimiento — Fecha de nacimiento.
+estado — Permite saber si el empleado está Activo, Inactivo, retirado, etc.
+fecha_retiro — Fecha en que terminó la relación laboral, si aplica.
+salario — Salario actual del empleado, si quieres manejarlo directamente desde empleados.
+usuario — Nombre de usuario para iniciar sesión.
+contraseña — Credencial de acceso, aunque debe manejarse de forma segura y no guardarse como texto normal.
+fecha_registro — Fecha en que el empleado fue registrado en el sistema.
+
+
+Tabla factura
+
+
+id_fac	       Identificador único de la factura. Permite registrar, buscar, 
+editar y eliminar una factura.
+
+fecha	       Guarda la fecha en que se genera la factura.
+
+impuesto       Guarda el valor del impuesto aplicado a la factura.
+
+estado	       Indica el estado de la factura. El código contempla: Pendiente, Pagada y Cancelada.
+
+total	       Guarda el valor total de la factura.
+
+id_fk_emp      Identifica al empleado asociado a la factura.
+
+id_fk_cli      Identifica al cliente asociado a la factura.
+
+
+
+Datos adicionales recomendados
+
+Podrías agregar:
+
+subtotal — Valor de los productos antes de impuestos.
+descuento — Valor o descuento aplicado a la factura.
+metodo_pago — Forma de pago utilizada: efectivo, tarjeta, transferencia, etc.
+numero_factura — Número visible de la factura para el cliente, si id_fac es solamente el identificador interno.
+observaciones — Información adicional relacionada con la venta.
+fecha_vencimiento — Fecha límite de pago si manejas ventas a crédito.
+forma_pago — Permite diferenciar contado, crédito, transferencia, etc.
+fecha_pago — Fecha en que se realizó el pago.
+estado_pago — Estado específico del pago: pendiente, parcial o pagado.
+
+
+
+Tabla producto
+
+
+id_prod	            Identificador único del producto. Permite registrar, buscar, editar y eliminar el producto.
+
+nombre	            Guarda el nombre del producto.
+
+descripcion	    Guarda una descripción o información del producto.
+
+precio	            Guarda el precio de venta del producto.
+
+estado	            Indica la disponibilidad del producto. El código lo calcula 
+automáticamente según el stock: Agotado, Bajo Stock o Disponible.
+
+stock	            Guarda la cantidad de unidades disponibles del producto.
+
+id_fk_cat	    Identifica la categoría a la que pertenece el producto.
+
+id_fk_prov	    Identifica el proveedor asociado al producto.
+
+
+
+
+Datos adicionales recomendados
+codigo_barras — Código de barras del producto para facilitar búsquedas y ventas.
+codigo_producto — Código interno o referencia del producto.
+precio_compra — Precio al que se adquiere el producto al proveedor.
+stock_minimo — Cantidad mínima permitida antes de generar una alerta de inventario.
+stock_maximo — Cantidad máxima recomendada para mantener en inventario.
+unidad_medida — Unidad en que se vende: unidad, metro, kilo, litro, caja, etc.
+marca — Marca del producto.
+ubicacion — Lugar donde se encuentra almacenado dentro de la bodega.
+fecha_registro — Fecha en que el producto fue agregado al sistema.
+estado_producto — Para indicar si el producto está activo o inactivo, independiente del estado del stock.
+
+
+
+Tabla proveedor
+
+id_prov      Identificador único del proveedor. Permite registrar, buscar, editar y 
+eliminar un proveedor.
+
+nit	     Guarda el NIT o número de identificación tributaria del proveedor.
+
+nombre	     Guarda el nombre o razón social del proveedor.
+
+telefono     Guarda el número de teléfono del proveedor.
+
+correo	     Guarda el correo electrónico del proveedor.
+
+
+Datos adicionales recomendados
+direccion — Dirección física del proveedor.
+ciudad — Ciudad donde está ubicado el proveedor.
+contacto — Nombre de la persona de contacto dentro de la empresa.
+telefono_contacto — Teléfono directo de la persona de contacto.
+estado — Permite indicar si el proveedor está Activo o Inactivo.
+tipo_proveedor — Permite clasificarlo, por ejemplo, nacional, mayorista, fabricante, etc.
+fecha_registro — Fecha en que se registró el proveedor en el sistema.
+sitio_web — Página web del proveedor, si tiene.
+observaciones — Información adicional importante sobre el proveedor.
+
