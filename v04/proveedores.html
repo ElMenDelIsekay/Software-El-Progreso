@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Proveedores</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="MenuPrincipal.html">
+    <img  src="img/logo.png" alt="Logo" class="imagen-logo" hrf="MenuPrincipal.html">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar proveedor...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">JP</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu" href="MenuPrincipal.html">📊 Panel de control</a>
+    <a class="item-menu" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu activo" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu" href="pedidos.html">🚚 Pedidos</a>
+    
+    <a class="item-menu" href="servicios.html">🛠️ Servicios</a>
+    <a class="item-menu" href="nosotros.html">📌 Acerca de Nosotros</a>
+    <a class="item-menu" href="contacto.html">💬 Contactanos</a>
+    <a class="item-menu" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="index.html">🚪 Cerrar Sesion</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Proveedores</h1>
+
+    <!-- Resumen -->
+    <div class="fila-tarjetas">
+      <div class="tarjeta">
+        <h3>Total Proveedores</h3>
+        <p class="numero-grande">8</p>
+        <p>Activos</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Compras del Mes</h3>
+        <p class="numero-grande">$12.450.000</p>
+        <p>+8% vs mes anterior</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Órdenes Activas</h3>
+        <p class="numero-grande">12</p>
+        <p>Pendientes de entrega</p>
+      </div>
+    </div>
+
+    <!-- Tabla de proveedores -->
+    <div class="tarjeta">
+      <div class="encabezado-tabla">
+        <h3>Lista de Proveedores</h3>
+        <button class="boton-secundario">+ Agregar Proveedor</button>
+      </div>
+      <table class="tabla-simple">
+        <thead>
+          <tr><th>NIT</th><th>Proveedor</th><th>Teléfono</th><th>Productos</th><th>Estado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>901234567-1</td><td>Aceros Industriales SAS</td><td>601 2345678</td><td>Varillas, alambrón, láminas</td><td class="estado-bueno">Activo</td></tr>
+          <tr><td>901234568-2</td><td>Ferros del Oriente</td><td>602 3456789</td><td>Clavos, pernos, tuercas</td><td class="estado-bueno">Activo</td></tr>
+          <tr><td>901234569-3</td><td>Pinturas Unidas</td><td>603 4567890</td><td>Pintura, esmaltes, thinner</td><td class="estado-bueno">Activo</td></tr>
+          <tr><td>901234570-4</td><td>Maderas Andinas</td><td>604 5678901</td><td>Madera, triplex, listones</td><td class="estado-bueno">Activo</td></tr>
+          <tr><td>901234571-5</td><td>Herramientas Tragma</td><td>605 6789012</td><td>Martillos, taladros, llaves</td><td class="estado-bueno">Activo</td></tr>
+          <tr><td>901234572-6</td><td>Cemento Andino</td><td>606 7890123</td><td>Cemento, pegante, mortero</td><td class="estado-bueno">Activo</td></tr>
+          <tr><td>901234573-7</td><td>Tuberías y Conexiones</td><td>607 8901234</td><td>Tuberías PVC, codos, uniones</td><td class="estado-bueno">Activo</td></tr>
+          <tr><td>901234574-8</td><td>Eléctricos UNI</td><td>608 9012345</td><td>Cables, interruptores, enchufes</td><td class="estado-bajo">En revisión</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<div class="barra-naranja"></div>
+<footer>
+       <pre>El Progreso © 2026. <br> Sistema de Gestión de Inventario diseñado para optimizar el control de productos, mejorar la organización y facilitar la toma de decisiones. </pre>
+</footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Configuración</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="MenuPrincipal.html">
+    <img src="img/logo.png" alt="Logo" class="imagen-logo">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar configuración...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">JP</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu" href="MenuPrincipal.html">📊 Panel de control</a>
+    <a class="item-menu" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu" href="pedidos.html">🚚 Pedidos</a>
+    <a class="item-menu activo" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="index.html">🚪 Cerrar Sesion</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Configuración</h1>
+
+    <div class="fila-dos-config">
+
+      <!-- Parte izquierdo configuración -->
+      <div class="tarjeta-config">
+
+        <h3>Perfil de Usuario</h3>
+
+        <div class="campo-config">
+          <label>Nombre</label>
+          <input type="text" value="Juan Pérez">
+        </div>
+
+        <div class="campo-config">
+          <label>Correo electrónico</label>
+          <input type="email" value="juan@elprogreso.com">
+        </div>
+
+        <div class="campo-config">
+          <label>Teléfono</label>
+          <input type="tel" value="300 123 4567">
+        </div>
+
+        <button class="boton-primario-pequeno">Guardar Cambios</button>
+      </div>
+
+      <!-- Parte derecha configuración -->
+      <div class="tarjeta-config">
+
+        <h3>Seguridad</h3>
+
+        <div class="campo-config">
+          <label>Contraseña actual</label>
+          <input type="password" placeholder="••••••••">
+        </div>
+
+        <div class="campo-config">
+          <label>Nueva contraseña</label>
+          <input type="password" placeholder="••••••••">
+        </div>
+
+        <div class="campo-config">
+          <label>Confirmar contraseña</label>
+          <input type="password" placeholder="••••••••">
+        </div>
+
+        <button class="boton-primario-pequeno">Actualizar Contraseña</button>
+      </div>
+    </div>
+
+    <!-- Otra-->
+    <div class="tarjeta">
+
+      <h3>Configuración del Negocio</h3>
+
+      <div class="fila-dos-config">
+        <div class="campo-config">
+          <label>Nombre del negocio</label>
+          <input type="text" value="El Progreso">
+        </div>
+
+        <div class="campo-config">
+          <label>NIT</label>
+          <input type="text" value="900.123.456-7">
+        </div>
+
+        <div class="campo-config">
+          <label>Dirección</label>
+          <input type="text" value="Calle 123 #45-67">
+        </div>
+
+        <div class="campo-config">
+          <label>Teléfono negocio</label>
+          <input type="text" value="601 123 4567">
+        </div>
+      </div>
+      <button class="boton-secundario">Guardar Información</button>
+    </div>
+
+    <!-- Preferencias -->
+    <div class="tarjeta">
+
+      <h3>Preferencias</h3>
+
+      <div class="opcion-config">
+        <span>Notificaciones por correo</span>
+
+        <label class="switch">
+          <input type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+
+      </div>
+      <div class="opcion-config">
+        <span>Modo oscuro</span>
+
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+        
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

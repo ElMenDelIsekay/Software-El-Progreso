@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Usuarios</title>
+<link rel="stylesheet" href="/css/estilos.css">
+
+<script>
+function nuevoUsuario(){
+    let tabla = document.querySelector("table");
+    let fila = tabla.insertRow();
+
+    fila.innerHTML = `
+        <td>Nuevo Usuario</td>
+        <td>Empleado</td>
+        <td>
+            <button class="btn btn-secondary" onclick="editarUsuario(this)">Editar</button>
+            <button class="btn btn-danger" onclick="eliminarUsuario(this)">Eliminar</button>
+        </td>
+    `;
+}
+
+function eliminarUsuario(btn){
+    if(confirm("¿Eliminar usuario?")){
+        btn.closest("tr").remove();
+    }
+}
+
+function editarUsuario(btn){
+    let fila = btn.closest("tr");
+    let nombre = fila.children[0];
+
+    let nuevo = prompt("Nuevo nombre:", nombre.innerText);
+    if(nuevo){
+        nombre.innerText = nuevo;
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="/img/logo-sin.png" class="logo">
+        <h2>Usuarios</h2>
+    </div>
+    <div class="header-right">
+        <a href="menu.html" class="btn btn-secondary">Volver</a>
+    </div>
+</header>
+
+<div class="container">
+<div class="content">
+
+    <div class="panel">
+
+        <button class="btn btn-primary" onclick="nuevoUsuario()">➕ Nuevo</button>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr>
+                    <td>Admin</td>
+                    <td>Administrador</td>
+                    <td>
+                        <button class="btn btn-secondary" onclick="editar()">Editar</button>
+                        <button class="btn btn-danger" onclick="eliminar()">Eliminar</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 El Progreso</p>
+</footer>
+
+</body>
+</html>

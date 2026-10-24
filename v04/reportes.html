@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Reportes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="MenuPrincipal.html">
+    <img  src="img/logo.png" alt="Logo" class="imagen-logo" hrf="MenuPrincipal.html">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar reporte...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">US</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu" href="MenuPrincipal.html">📊 Panel de control</a>
+    <a class="item-menu" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu activo" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu" href="pedidos.html">🚚 Pedidos</a>
+    
+    <a class="item-menu" href="servicios.html">🛠️ Servicios</a>
+    <a class="item-menu" href="nosotros.html">📌 Acerca de Nosotros</a>
+    <a class="item-menu" href="contacto.html">💬 Contactanos</a>
+    <a class="item-menu" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="index.html">🚪 Cerrar Sesion</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Reportes</h1>
+
+    <!-- Filtros -->
+    <div class="filtros">
+      <select class="filtro-select">
+        <option>Últimos 7 días</option>
+        <option>Últimos 30 días</option>
+        <option>Últimos 90 días</option>
+        <option>Este año</option>
+      </select>
+      <button class="boton-secundario">Generar Reporte</button>
+    </div>
+
+    <!-- Tarjetas de reportes -->
+    <div class="fila-tarjetas">
+      <div class="tarjeta">
+        <h3>Ventas Totales</h3>
+        <p class="numero-grande">$12'450.000</p>
+        <p>+15% vs mes anterior</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Productos Vendidos</h3>
+        <p class="numero-grande">3.280</p>
+        <p>Unidades vendidas</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Clientes Nuevos</h3>
+        <p class="numero-grande">124</p>
+        <p>Este mes</p>
+      </div>
+    </div>
+
+    <!-- Tabla de reportes -->
+    <div class="tarjeta">
+      <h3>Ventas por Categoría</h3>
+      <table class="tabla-simple">
+        <thead>
+          <tr><th>Categoría</th><th>Ventas</th><th>Ingresos</th><th>%</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Granos</td><td>850</td><td>$2'550.000</td><td>28%</td></tr>
+          <tr><td>Aceites</td><td>420</td><td>$2'016.000</td><td>14%</td></tr>
+          <tr><td>Lácteos</td><td>680</td><td>$3'400.000</td><td>22%</td></tr>
+          <tr><td>Bebidas</td><td>530</td><td>$2'384.000</td><td>18%</td></tr>
+          <tr><td>Aseo</td><td>450</td><td>$2'100.000</td><td>18%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<div class="barra-naranja"></div>
+<footer>
+       <pre>El Progreso © 2026. <br> Sistema de Gestión de Inventario diseñado para optimizar el control de productos, mejorar la organización y facilitar la toma de decisiones. </pre>
+</footer>
+<script>
+  // ============================================
+// REPORTES.JS - Versión Simplificada
+// Para Ferretería "El Progreso"
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ============================================
+    // ELEMENTOS DEL DOM
+    // ============================================
+    const filtroSelect = document.querySelector('.filtro-select');
+    const btnGenerar = document.querySelector('.boton-secundario');
+    const ventasTotales = document.querySelector('.fila-tarjetas .tarjeta:first-child .numero-grande');
+    const productosVendidos = document.querySelector('.fila-tarjetas .tarjeta:nth-child(2) .numero-grande');
+    const clientesNuevos = document.querySelector('.fila-tarjetas .tarjeta:nth-child(3) .numero-grande');
+    const tablaBody = document.querySelector('.tabla-simple tbody');
+    const buscador = document.querySelector('.buscador input');
+    
+    // ============================================
+    // DATOS DE EJEMPLO POR PERÍODO
+    // ============================================
+    const datosPorPeriodo = {
+        'Últimos 7 días': {
+            ventas: 12450000,
+            productos: 3280,
+            clientes: 124,
+            categorias: [
+                ['Granos', 850, 2550000, 28],
+                ['Aceites', 420, 2016000, 14],
+                ['Lácteos', 680, 3400000, 22],
+                ['Bebidas', 530, 2384000, 18],
+                ['Aseo', 450, 2100000, 18]
+            ]
+        },
+        'Últimos 30 días': {
+            ventas: 52380000,
+            productos: 14250,
+            clientes: 487,
+            categorias: [
+                ['Granos', 3650, 10950000, 27],
+                ['Aceites', 1890, 9072000, 15],
+                ['Lácteos', 2980, 14900000, 23],
+                ['Bebidas', 2340, 10530000, 18],
+                ['Aseo', 1890, 8820000, 17]
+            ]
+        },
+        'Últimos 90 días': {
+            ventas: 148760000,
+            productos: 42180,
+            clientes: 1456,
+            categorias: [
+                ['Granos', 10850, 32550000, 28],
+                ['Aceites', 5670, 27216000, 15],
+                ['Lácteos', 8450, 42250000, 23],
+                ['Bebidas', 6780, 30510000, 18],
+                ['Aseo', 5430, 25340000, 16]
+            ]
+        },
+        'Este año': {
+            ventas: 589234000,
+            productos: 168450,
+            clientes: 5847,
+            categorias: [
+                ['Granos', 43250, 129750000, 29],
+                ['Aceites', 22890, 109872000, 16],
+                ['Lácteos', 33450, 167250000, 24],
+                ['Bebidas', 26780, 120510000, 18],
+                ['Aseo', 19080, 89124000, 13]
+            ]
+        }
+    };
+    
+    // ============================================
+    // FUNCIÓN PARA FORMATEAR DINERO
+    // ============================================
+    function formatearDinero(valor) {
+        if (valor >= 1000000) {
+            return '$' + (valor / 1000000).toFixed(1) + 'M';
+        }
+        return '$' + valor.toLocaleString('es-CO');
+    }
+    
+    // ============================================
+    // FUNCIÓN PARA FORMATEAR NÚMEROS NORMALES
+    // ============================================
+    function formatearNumero(numero) {
+        return numero.toLocaleString('es-CO');
+    }
+    
+    // ============================================
+    // ACTUALIZAR TARJETAS
+    // ============================================
+    function actualizarTarjetas(datos) {
+        if (ventasTotales) ventasTotales.textContent = formatearDinero(datos.ventas);
+        if (productosVendidos) productosVendidos.textContent = formatearNumero(datos.productos);
+        if (clientesNuevos) clientesNuevos.textContent = formatearNumero(datos.clientes);
+    }
+    
+    // ============================================
+    // ACTUALIZAR TABLA
+    // ============================================
+    function actualizarTabla(datos) {
+        if (!tablaBody) return;
+        
+        tablaBody.innerHTML = '';
+        
+        datos.categorias.forEach(cat => {
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
+                <td>${cat[0]}</td>
+                <td>${formatearNumero(cat[1])}</td>
+                <td>${formatearDinero(cat[2])}</td>
+                <td>${cat[3]}%</td>
+            `;
+            tablaBody.appendChild(fila);
+        });
+    }
+    
+    // ============================================
+    // GENERAR REPORTE PRINCIPAL
+    // ============================================
+    function generarReporte() {
+        const periodo = filtroSelect.value;
+        const datos = datosPorPeriodo[periodo];
+        
+        if (datos) {
+            actualizarTarjetas(datos);
+            actualizarTabla(datos);
+        }
+    }
+    
+    // ============================================
+    // BUSCADOR EN TABLA
+    // ============================================
+    if (buscador && tablaBody) {
+        buscador.addEventListener('input', function(e) {
+            const busqueda = e.target.value.toLowerCase();
+            const filas = tablaBody.querySelectorAll('tr');
+            
+            filas.forEach(fila => {
+                const texto = fila.textContent.toLowerCase();
+                fila.style.display = texto.includes(busqueda) ? '' : 'none';
+            });
+        });
+    }
+    
+    // ============================================
+    // EVENTO DEL BOTÓN GENERAR
+    // ============================================
+    if (btnGenerar) {
+        btnGenerar.addEventListener('click', generarReporte);
+    }
+    
+    // ============================================
+    // INICIALIZAR CON DATOS POR DEFECTO
+    // ============================================
+    generarReporte();
+    
+    // ============================================
+    // MENSAJE DE BIENVENIDA EN CONSOLA
+    // ============================================
+    console.log('✅ Sistema de reportes funcionando correctamente');
+});
+</script>
+
+</body>
+</html>

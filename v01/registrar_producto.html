@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Producto</title>
+<link rel="stylesheet" href="/css/estilos.css">
+
+<script>
+function guardarProducto(e){
+    e.preventDefault();
+
+    let inputs = document.querySelectorAll("input");
+    for(let i of inputs){
+        if(i.value === ""){
+            alert("Completa todos los campos");
+            return;
+        }
+    }
+
+    alert("Producto guardado");
+    document.querySelector("form").reset();
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="/img/logo-sin.png" class="logo">
+        <h2>Registrar Producto</h2>
+    </div>
+    <div class="header-right">
+        <a href="menu.html" class="btn btn-secondary">Volver</a>
+    </div>
+</header>
+
+<div class="container">
+<div class="content">
+
+    <div class="panel">
+
+        <form onsubmit="guardarProducto(event)">
+
+            <input type="text" placeholder="Nombre" required>
+            <input type="number" placeholder="Cantidad" required>
+            <input type="number" placeholder="Precio" required>
+
+            <div class="btn-group">
+                <button class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-secondary">Limpiar</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 El Progreso</p>
+</footer>
+
+</body>
+</html>

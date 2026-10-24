@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Configuración</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="MenuPrincipal.html">
+    <img src="img/logo.png" alt="Logo" class="imagen-logo">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar configuración...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">JP</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu" href="MenuPrincipal.html">📊 Panel de control</a>
+    <a class="item-menu" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu" href="pedidos.html">🚚 Pedidos</a>
+    <a class="item-menu" href="servicios.html">🛠️ Servicios</a>
+    <a class="item-menu" href="nosotros.html">📌 Acerca de Nosotros</a>
+    <a class="item-menu" href="contacto.html">💬 Contactanos</a>
+    <a class="item-menu activo" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="index.html">🚪 Cerrar Sesión</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Configuración</h1>
+
+    <div class="fila-dos-config">
+      <!-- Perfil de Usuario -->
+      <div class="tarjeta-config-fieldset">
+        <fieldset>
+          <legend>Perfil de Usuario</legend>
+
+          <div class="campo-config">
+            <label>Nombre</label>
+            <input type="text" value="Juan Pérez">
+          </div>
+
+          <div class="campo-config">
+            <label>Correo electrónico</label>
+            <input type="email" value="juan@elprogreso.com">
+          </div>
+
+          <div class="campo-config">
+            <label>Teléfono</label>
+            <input type="tel" value="300 123 4567">
+          </div>
+
+          <button type="button" class="boton-primario-pequeno">Guardar Cambios</button>
+         
+        </fieldset>
+      </div>
+
+      <!-- Seguridad -->
+      <div class="tarjeta-config-fieldset">
+        <fieldset>
+          <legend>Seguridad</legend>
+
+          <div class="campo-config">
+            <label>Contraseña actual</label>
+            <input type="password" placeholder="••••••••">
+          </div>
+
+          <div class="campo-config">
+            <label>Nueva contraseña</label>
+            <input type="password" placeholder="••••••••">
+          </div>
+
+          <div class="campo-config">
+            <label>Confirmar contraseña</label>
+            <input type="password" placeholder="••••••••">
+          </div>
+
+          <button type="button" class="boton-primario-pequeno">Actualizar Contraseña</button>
+        </fieldset>
+      </div>
+    </div>
+
+    <!-- Configuración del Negocio -->
+    <div class="tarjeta-fieldset">
+      <fieldset>
+        <legend>Configuración del Negocio</legend>
+
+        <div class="fila-dos-config">
+          <div class="campo-config">
+            <label>Nombre del negocio</label>
+            <input type="text" value="El Progreso">
+          </div>
+
+          <div class="campo-config">
+            <label>NIT</label>
+            <input type="text" value="900.123.456-7">
+          </div>
+
+          <div class="campo-config">
+            <label>Dirección</label>
+            <input type="text" value="Calle 123 #45-67">
+          </div>
+
+          <div class="campo-config">
+            <label>Teléfono negocio</label>
+            <input type="text" value="601 123 4567">
+          </div>
+        </div>
+        <button type="button" class="boton-secundario">Guardar Información</button>
+      </fieldset>
+    </div>
+
+    <!-- Preferencias -->
+    <div class="tarjeta-fieldset">
+      <fieldset>
+        <legend>Preferencias</legend>
+
+        <div class="opcion-config">
+          <span>Notificaciones por correo</span>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="opcion-config">
+          <span>Modo oscuro</span>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+  </main>
+</div>
+
+<div class="barra-naranja"></div>
+<footer>
+  <pre>El Progreso © 2026. <br> Sistema de Gestión de Inventario diseñado para optimizar el control de productos, mejorar la organización y facilitar la toma de decisiones.</pre>
+</footer>
+
+</body>
+</html>

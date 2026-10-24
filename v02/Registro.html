@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Progreso — Iniciar sesión</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0D2252 0%, #1a3a7a 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-wrap {
+      display: flex;
+      width: 860px;
+      min-height: 520px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      background: #fff;
+      position: relative;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: #0D2252;
+      z-index: 10;
+    }
+
+    /* ── Panel izquierdo ── */
+    .left-panel {
+      width: 42%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      border-right: 1px solid #e0e0e0;
+      padding: 60px 32px 0 32px;
+    }
+
+    .left-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .cube-logo {
+      width: 90px;
+      height: 90px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 600;
+      color: #0D2252;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    .orange-band {
+      width: 100%;
+      background: #FF6B1A;
+      height: 72px;
+      flex-shrink: 0;
+    }
+
+    /* ── Panel derecho ── */
+    .right-panel {
+      width: 58%;
+      padding: 60px 48px 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .login-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .login-sub {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 28px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 16px;
+    }
+
+    .field-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .field-group input {
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 10px 13px;
+      font-size: 14px;
+      color: #111827;
+      outline: none;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .field-group input:focus {
+      border-color: #1D6ECC;
+      box-shadow: 0 0 0 3px rgba(29,110,204,0.15);
+    }
+
+    .row-check {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #6b7280;
+      cursor: pointer;
+    }
+
+    .remember input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: #1D6ECC;
+      cursor: pointer;
+    }
+
+    .forgot-link {
+      font-size: 13px;
+      color: #1D6ECC;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .forgot-link:hover { text-decoration: underline; }
+
+    .btn-primary {
+      width: 100%;
+      padding: 11px;
+      background: #1D6ECC;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: background 0.15s;
+    }
+
+    .btn-primary:hover { background: #1558A8; }
+
+    .btn-google {
+      width: 100%;
+      padding: 10px;
+      background: #fff;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      transition: background 0.15s;
+    }
+
+    .btn-google:hover { background: #f9fafb; }
+
+    .google-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .signup-text {
+      text-align: center;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .signup-text a {
+      color: #1D6ECC;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .signup-text a:hover { text-decoration: underline; }
+
+    /* Mensajes de error/éxito */
+    .message-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+
+    .message-toast.error {
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+      background: #fee2e2;
+    }
+
+    .message-toast.success {
+      border-left: 4px solid #16a34a;
+      color: #166534;
+      background: #dcfce7;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Modal de registro */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      width: 400px;
+      max-width: 90%;
+      padding: 32px;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 20px;
+      color: #0D2252;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #6b7280;
+    }
+
+    .modal-close:hover {
+      color: #374151;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-wrap">
+  <div class="top-bar"></div>
+
+  <!-- Panel izquierdo -->
+  <div class="left-panel">
+    <div class="left-content">
+      <svg class="cube-logo" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="45,8 78,26 78,62 45,80 12,62 12,26" fill="#0D2252"/>
+        <polygon points="45,8 78,26 45,44 12,26" fill="#1A3A7A"/>
+        <polygon points="45,44 78,26 78,62 45,80" fill="#0D2252"/>
+        <polygon points="45,44 12,26 12,62 45,80" fill="#0A1C45"/>
+        <polygon points="55,18 72,28 55,38 38,28" fill="#FF6B1A"/>
+        <polygon points="55,38 72,28 72,48 55,58" fill="#E05510"/>
+        <polygon points="55,38 38,28 38,48 55,58" fill="#FF8C42"/>
+      </svg>
+      <p class="brand-name">EL PROGRESO</p>
+    </div>
+    <div class="orange-band"></div>
+  </div>
+
+  <!-- Panel derecho -->
+  <div class="right-panel">
+    <h1 class="login-title">Inicia sesión en tu cuenta</h1>
+    <p class="login-sub">¡Bienvenido de nuevo! Por favor, ingresa tus datos.</p>
+
+    <div class="field-group">
+      <label for="email">Correo</label>
+      <input type="email" id="email" placeholder="Ingresa tu correo" autocomplete="email"/>
+    </div>
+
+    <div class="field-group">
+      <label for="pass">Contraseña</label>
+      <input type="password" id="pass" placeholder="••••••••" autocomplete="current-password"/>
+    </div>
+
+    <div class="row-check">
+      <label class="remember">
+        <input type="checkbox" id="remember"/>
+        Recordar por 30 días
+      </label>
+      <a class="forgot-link" id="forgotBtn">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <button class="btn-primary" id="loginBtn">Iniciar sesión</button>
+
+    <button class="btn-google" id="googleBtn">
+      <svg class="google-icon" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+        <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+        <path d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z" fill="#FBBC05"/>
+        <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 7.294C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+      </svg>
+      Iniciar sesión con Google
+    </button>
+
+    <p class="signup-text">¿No tienes una cuenta? <a id="showRegisterLink">Registrarse</a></p>
+  </div>
+</div>
+
+<!-- Modal de Registro -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" id="closeModal">&times;</span>
+    <h2>Crear cuenta nueva</h2>
+    <div class="field-group">
+      <label>Nombre completo</label>
+      <input type="text" id="regName" placeholder="Tu nombre completo"/>
+    </div>
+    <div class="field-group">
+      <label>Correo electrónico</label>
+      <input type="email" id="regEmail" placeholder="correo@ejemplo.com"/>
+    </div>
+    <div class="field-group">
+      <label>Contraseña</label>
+      <input type="password" id="regPass" placeholder="Mínimo 6 caracteres"/>
+    </div>
+    <button class="btn-primary" id="registerBtn">Registrarse</button>
+  </div>
+</div>
+
+<script>
+  // ===================== BASE DE DATOS (IndexedDB) =====================
+  const DB_NAME = 'ElProgresoDB';
+  const DB_VERSION = 1;
+  const STORE_NAME = 'usuarios';
+
+  let db = null;
+
+  // Abrir/crear la base de datos
+  function openDatabase() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(DB_NAME, DB_VERSION);
+      
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        db = request.result;
+        resolve(db);
+      };
+      
+      request.onupgradeneeded = (event) => {
+        const database = event.target.result;
+        if (!database.objectStoreNames.contains(STORE_NAME)) {
+          // Creamos el almacén con 'email' como clave única
+          const store = database.createObjectStore(STORE_NAME, { keyPath: 'email' });
+          store.createIndex('nombre', 'nombre', { unique: false });
+          store.createIndex('password', 'password', { unique: false });
+        }
+      };
+    });
+  }
+
+  // Registrar usuario
+  async function registerUser(nombre, email, password) {
+    if (!db) await openDatabase();
+    
+    return new Promise((resolve, reject) => {
+      // Verificar si ya existe
+      const transaction = db.transaction([STORE_NAME], 'readonly');
+      const store = transaction.objectStore(STORE_NAME);
+      const getRequest = store.get(email);
+      
+      getRequest.onsuccess = () => {
+        if (getRequest.result) {
+          reject(new Error('El correo ya está registrado'));
+        } else {
+          // No existe, procedemos a guardar
+          const writeTransaction = db.transaction([STORE_NAME], 'readwrite');
+          const writeStore = writeTransaction.objectStore(STORE_NAME);
+          const user = {
+            email: email,
+            nombre: nombre,
+            password: password // En producción se debe encriptar, pero para demo es texto plano
+          };
+          const addRequest = writeStore.add(user);
+          addRequest.onsuccess = () => resolve(user);
+          addRequest.onerror = () => reject(addRequest.error);
+        }
+      };
+      getRequest.onerror = () => reject(getRequest.error);
+    });
+  }
+
+  // Iniciar sesión
+  async function loginUser(email, password) {
+    if (!db) await openDatabase();
+    
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction([STORE_NAME], 'readonly');
+      const store = transaction.objectStore(STORE_NAME);
+      const request = store.get(email);
+      
+      request.onsuccess = () => {
+        const user = request.result;
+        if (user && user.password === password) {
+          resolve(user);
+        } else {
+          reject(new Error('Correo o contraseña incorrectos'));
+        }
+      };
+      request.onerror = () => reject(request.error);
+    });
+  }
+
+  // Recuperar contraseña (simulado)
+  async function recoverPassword(email) {
+    if (!db) await openDatabase();
+    
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction([STORE_NAME], 'readonly');
+      const store = transaction.objectStore(STORE_NAME);
+      const request = store.get(email);
+      
+      request.onsuccess = () => {
+        if (request.result) {
+          resolve(`Hemos enviado instrucciones de recuperación a ${email} (demo)`);
+        } else {
+          reject(new Error('No existe una cuenta con ese correo'));
+        }
+      };
+      request.onerror = () => reject(request.error);
+    });
+  }
+
+  // Guardar sesión (recordar) en localStorage
+  function saveSession(email, remember) {
+    if (remember) {
+      localStorage.setItem('rememberedEmail', email);
+      localStorage.setItem('sessionActive', 'true');
+    } else {
+      sessionStorage.setItem('sessionEmail', email);
+    }
+  }
+
+  // Cargar sesión previa al iniciar la página
+  function loadPreviousSession() {
+    const rememberedEmail = localStorage.getItem('rememberedEmail');
+    const sessionActive = localStorage.getItem('sessionActive');
+    const sessionEmail = sessionStorage.getItem('sessionEmail');
+    
+    if (rememberedEmail && sessionActive === 'true') {
+      document.getElementById('email').value = rememberedEmail;
+      document.getElementById('remember').checked = true;
+    } else if (sessionEmail) {
+      document.getElementById('email').value = sessionEmail;
+    }
+  }
+
+  // Mostrar mensajes flotantes
+  function showMessage(text, isError = true) {
+    const existingToast = document.querySelector('.message-toast');
+    if (existingToast) existingToast.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = `message-toast ${isError ? 'error' : 'success'}`;
+    toast.textContent = text;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
+
+  // Redirigir al dashboard (simulación)
+  function redirectToDashboard(user) {
+    showMessage(`✅ Bienvenido, ${user.nombre || user.email}!`, false);
+    setTimeout(() => {
+      // Aquí puedes redirigir a otra página o mostrar contenido
+      alert(`Redirigiendo al panel de control...\nBienvenido ${user.nombre || user.email}`);
+      // window.location.href = '/dashboard.html'; // Descomentar cuando exista
+    }, 1000);
+  }
+
+  // ========== MANEJO DE EVENTOS Y MODALES ==========
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Inicializar base de datos
+    try {
+      await openDatabase();
+      console.log('Base de datos IndexedDB lista');
+      // Cargar sesión guardada
+      loadPreviousSession();
+      
+      // Insertar usuario demo si no existe (opcional)
+      const demoEmail = 'demo@elprogreso.com';
+      const transaction = db.transaction([STORE_NAME], 'readonly');
+      const store = transaction.objectStore(STORE_NAME);
+      const checkDemo = store.get(demoEmail);
+      checkDemo.onsuccess = () => {
+        if (!checkDemo.result) {
+          const writeTx = db.transaction([STORE_NAME], 'readwrite');
+          const writeStore = writeTx.objectStore(STORE_NAME);
+          writeStore.add({
+            email: demoEmail,
+            nombre: 'Usuario Demo',
+            password: '123456'
+          });
+          console.log('Usuario demo creado: demo@elprogreso.com / 123456');
+        }
+      };
+    } catch (err) {
+      console.error('Error al abrir DB:', err);
+      showMessage('Error al conectar con la base de datos local');
+    }
+    
+    // === Elementos DOM ===
+    const emailInput = document.getElementById('email');
+    const passInput = document.getElementById('pass');
+    const rememberCheck = document.getElementById('remember');
+    const loginBtn = document.getElementById('loginBtn');
+    const googleBtn = document.getElementById('googleBtn');
+    const forgotBtn = document.getElementById('forgotBtn');
+    const showRegisterLink = document.getElementById('showRegisterLink');
+    const registerModal = document.getElementById('registerModal');
+    const closeModal = document.getElementById('closeModal');
+    const registerBtn = document.getElementById('registerBtn');
+    
+    // Inicio de sesión tradicional
+    loginBtn.addEventListener('click', async () => {
+      const email = emailInput.value.trim();
+      const password = passInput.value;
+      
+      if (!email || !password) {
+        showMessage('Por favor completa todos los campos');
+        return;
+      }
+      
+      try {
+        const user = await loginUser(email, password);
+        saveSession(email, rememberCheck.checked);
+        redirectToDashboard(user);
+      } catch (error) {
+        showMessage(error.message);
+      }
+    });
+    
+    // Inicio con Google (simulación)
+    googleBtn.addEventListener('click', () => {
+      // Simular autenticación con Google creando un usuario ficticio
+      const fakeGoogleEmail = `usuario${Math.floor(Math.random()*1000)}@gmail.com`;
+      const fakeNombre = 'Usuario Google';
+      // Lo registramos automáticamente si no existe y luego iniciamos sesión
+      registerUser(fakeNombre, fakeGoogleEmail, 'google-auth-demo')
+        .then(() => loginUser(fakeGoogleEmail, 'google-auth-demo'))
+        .then(user => {
+          saveSession(fakeGoogleEmail, false);
+          redirectToDashboard(user);
+        })
+        .catch(err => {
+          // Si ya existe, intentamos login directo
+          loginUser(fakeGoogleEmail, 'google-auth-demo')
+            .then(user => {
+              saveSession(fakeGoogleEmail, false);
+              redirectToDashboard(user);
+            })
+            .catch(() => {
+              showMessage('Error con autenticación de Google (demo)');
+            });
+        });
+      showMessage('🔐 Simulando acceso con Google...', false);
+    });
+    
+    // Recuperar contraseña
+    forgotBtn.addEventListener('click', async () => {
+      const email = emailInput.value.trim();
+      if (!email) {
+        showMessage('Ingresa tu correo para recuperar contraseña');
+        return;
+      }
+      try {
+        const msg = await recoverPassword(email);
+        showMessage(msg, false);
+      } catch (error) {
+        showMessage(error.message);
+      }
+    });
+    
+    // Mostrar modal de registro
+    showRegisterLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      registerModal.classList.add('active');
+    });
+    
+    // Cerrar modal
+    closeModal.addEventListener('click', () => {
+      registerModal.classList.remove('active');
+    });
+    
+    // Cerrar modal haciendo clic fuera
+    registerModal.addEventListener('click', (e) => {
+      if (e.target === registerModal) {
+        registerModal.classList.remove('active');
+      }
+    });
+    
+    // Registro de nuevo usuario
+    registerBtn.addEventListener('click', async () => {
+      const nombre = document.getElementById('regName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPass').value;
+      
+      if (!nombre || !email || !password) {
+        showMessage('Completa todos los campos del registro');
+        return;
+      }
+      if (password.length < 6) {
+        showMessage('La contraseña debe tener al menos 6 caracteres');
+        return;
+      }
+      
+      try {
+        await registerUser(nombre, email, password);
+        showMessage('✅ Registro exitoso. Ahora puedes iniciar sesión', false);
+        registerModal.classList.remove('active');
+        // Limpiar campos de registro
+        document.getElementById('regName').value = '';
+        document.getElementById('regEmail').value = '';
+        document.getElementById('regPass').value = '';
+        // Opcional: autocompletar email en login
+        emailInput.value = email;
+      } catch (error) {
+        showMessage(error.message);
+      }
+    });
+    
+    // Permitir enviar con Enter
+    const handleEnter = (e) => {
+      if (e.key === 'Enter') {
+        loginBtn.click();
+      }
+    };
+    emailInput.addEventListener('keypress', handleEnter);
+    passInput.addEventListener('keypress', handleEnter);
+  });
+</script>
+</body>
+</html>

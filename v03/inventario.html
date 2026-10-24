@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Inventario</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="MenuPrincipal.html">
+    <img src="img/logo.png" alt="Logo" class="imagen-logo">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar producto...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">JP</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu" href="MenuPrincipal.html">📊 Panel de control</a>
+    <a class="item-menu activo" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu" href="pedidos.html">🚚 Pedidos</a>
+    <a class="item-menu" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="index.html">🚪 Cerrar Sesion</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Inventario</h1>
+
+    <!-- Resumen de inventario -->
+    <div class="fila-tarjetas">
+      <div class="tarjeta">
+        <h3>Total Productos</h3>
+        <p class="numero-grande">1.240</p>
+        <p>Unidades en stock</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Productos Bajos</h3>
+        <p class="numero-grande">23</p>
+        <p>Por debajo del mínimo</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Próximo a Vencer</h3>
+        <p class="numero-grande">12</p>
+        <p>Productos por vencer</p>
+      </div>
+    </div>
+
+    <!-- Tabla de inventario -->
+    <div class="tarjeta">
+      <div class="encabezado-tabla">
+        <h3>Lista de Productos</h3>
+        <button class="boton-secundario">+ Agregar Producto</button>
+      </div>
+      <table class="tabla-simple">
+        <thead>
+          <tr><th>Código</th><th>Producto</th><th>Categoría</th><th>Stock</th><th>Precio</th><th>Stock</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>F001</td>
+            <td>Martillo 500g</td>
+            <td>Herramientas Manuales</td>
+            <td>150</td>
+            <td>$6.500</td>
+            <td class="estado-bueno">Bueno</td>
+          </tr>
+          <tr>
+            <td>F002</td>
+            <td>Taladro Eléctrico 650W</td>
+            <td>Herramientas Eléctricas</td>
+            <td>80</td>
+            <td>$45.900</td>
+            <td class="estado-bueno">Bueno</td>
+          </tr>
+          <tr>
+            <td>F003</td>
+            <td>Cemento 25kg</td>
+            <td>Materiales Construcción</td>
+            <td>45</td>
+            <td>$12.800</td>
+            <td class="estado-bajo">Bajo</td>
+          </tr>
+          <tr>
+            <td>F004</td>
+            <td>Pintura Blanca 1L</td>
+            <td>Pinturería</td>
+            <td>120</td>
+            <td>$8.900</td>
+            <td class="estado-bueno">Bueno</td>
+          </tr>
+          <tr>
+            <td>F005</td>
+            <td>Clavos 2" (100g)</td>
+            <td>Ferretería Básica</td>
+            <td>18</td>
+            <td>$2.200</td>
+            <td class="estado-critico">Crítico</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

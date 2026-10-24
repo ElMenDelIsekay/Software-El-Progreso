@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Reportes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="MenuPrincipal.html">
+    <img  src="img/logo.png" alt="Logo" class="imagen-logo" hrf="MenuPrincipal.html">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar reporte...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">US</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu" href="MenuPrincipal.html">📊 Panel de control</a>
+    <a class="item-menu" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu activo" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu" href="pedidos.html">🚚 Pedidos</a>
+    
+    <a class="item-menu" href="servicios.html">🛠️ Servicios</a>
+    <a class="item-menu" href="nosotros.html">📌 Acerca de Nosotros</a>
+    <a class="item-menu" href="contacto.html">💬 Contactanos</a>
+    <a class="item-menu" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="index.html">🚪 Cerrar Sesion</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Reportes</h1>
+
+    <!-- Filtros -->
+    <div class="filtros">
+      <select class="filtro-select">
+        <option>Últimos 7 días</option>
+        <option>Últimos 30 días</option>
+        <option>Últimos 90 días</option>
+        <option>Este año</option>
+      </select>
+      <button class="boton-secundario">Generar Reporte</button>
+    </div>
+
+    <!-- Tarjetas de reportes -->
+    <div class="fila-tarjetas">
+      <div class="tarjeta">
+        <h3>Ventas Totales</h3>
+        <p class="numero-grande">$12'450.000</p>
+        <p>+15% vs mes anterior</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Productos Vendidos</h3>
+        <p class="numero-grande">3.280</p>
+        <p>Unidades vendidas</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Clientes Nuevos</h3>
+        <p class="numero-grande">124</p>
+        <p>Este mes</p>
+      </div>
+    </div>
+
+    <!-- Tabla de reportes -->
+    <div class="tarjeta">
+      <h3>Ventas por Categoría</h3>
+      <table class="tabla-simple">
+        <thead>
+          <tr><th>Categoría</th><th>Ventas</th><th>Ingresos</th><th>%</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Granos</td><td>850</td><td>$2'550.000</td><td>28%</td></tr>
+          <tr><td>Aceites</td><td>420</td><td>$2'016.000</td><td>14%</td></tr>
+          <tr><td>Lácteos</td><td>680</td><td>$3'400.000</td><td>22%</td></tr>
+          <tr><td>Bebidas</td><td>530</td><td>$2'384.000</td><td>18%</td></tr>
+          <tr><td>Aseo</td><td>450</td><td>$2'100.000</td><td>18%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<div class="barra-naranja"></div>
+<footer>
+       <pre>El Progreso © 2026. <br> Sistema de Gestión de Inventario diseñado para optimizar el control de productos, mejorar la organización y facilitar la toma de decisiones. </pre>
+</footer>
+</body>
+</html>

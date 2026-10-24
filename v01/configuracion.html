@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Configuración</title>
+<link rel="stylesheet" href="/css/estilos.css">
+
+<script>
+function guardarConfig(e){
+    e.preventDefault();
+    alert("Configuración guardada");
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="/img/logo-sin.png" class="logo">
+        <h2>Configuración</h2>
+    </div>
+    <div class="header-right">
+        <a href="menu.html" class="btn btn-secondary">Volver</a>
+    </div>
+</header>
+
+<div class="container">
+<div class="content">
+
+    <div class="panel">
+
+        <form onsubmit="guardarConfig(event)">
+
+            <label>Modo oscuro</label>
+            <select>
+                <option>Activado</option>
+                <option>Desactivado</option>
+            </select>
+
+            <label>Idioma</label>
+            <select>
+                <option>Español</option>
+                <option>Inglés</option>
+            </select>
+
+            <div class="btn-group">
+                <button class="btn btn-primary">Guardar</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 El Progreso</p>
+</footer>
+
+</body>
+</html>

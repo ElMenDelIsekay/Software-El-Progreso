@@ -1,0 +1,213 @@
+/* ========================= */
+/* PALETA DE COLORES */
+/* ========================= */
+:root {
+    --negro: #1c1c1c;
+    --gris-oscuro: #2a2a2a;
+    --azul-suave: #5dade2;
+    --naranja: #f39c12;
+
+    --fondo: #f4f6f8;
+    --blanco: #ffffff;
+    --gris-claro: #ecf0f1;
+    --gris: #bdc3c7;
+    --texto: #222222;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* FONDO */
+body.bg {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1556740749-887f6717d7e4");
+    background-size: cover;
+    background-position: center;
+}
+
+/* HEADER 🔥 NEGRO */
+header {
+    background: var(--negro);
+    color: var(--blanco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 30px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* MÁS LIMPIO */
+.user-box {
+    background: var(--gris-oscuro);
+    color: var(--blanco);
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+/* CONTENEDOR */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.content {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* PANEL */
+.panel {
+    background: var(--blanco);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* MENU */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+/* CARDS */
+.card {
+    background: var(--blanco);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--texto);
+    border: 1px solid var(--gris);
+    transition: all 0.25s ease;
+}
+
+/* HOVER */
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: var(--naranja);
+}
+
+/* FORM */
+form {
+    width: 100%;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 12px;
+    border-radius: 5px;
+    border: 1px solid var(--gris);
+}
+
+/* FOCUS */
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--naranja);
+    box-shadow: 0 0 5px rgba(243,156,18,0.4);
+}
+
+/* BOTONES */
+.btn {
+    padding: 8px 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+/* 🔥 PRINCIPAL NARANJA */
+.btn-primary {
+    background: var(--naranja);
+    color: var(--blanco);
+}
+
+.btn-primary:hover {
+    background: #d68910;
+}
+
+/* SECUNDARIO SUAVE */
+.btn-secondary {
+    background: var(--gris);
+    color: var(--texto);
+}
+
+.btn-secondary:hover {
+    background: #a6acaf;
+}
+
+/* PELIGRO */
+.btn-danger {
+    background: #e74c3c;
+    color: var(--blanco);
+}
+
+/* GRUPOS */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* TABLA */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    background: var(--blanco);
+    border-collapse: collapse;
+}
+
+th {
+    background: var(--gris-claro);
+    color: var(--texto);
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid var(--gris);
+}
+
+footer {
+    background: var(--negro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 12px;
+}

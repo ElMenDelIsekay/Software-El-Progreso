@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="/css/estilos.css">
+
+<script>
+function login(e){
+    e.preventDefault();
+
+    let user = document.querySelector("input[type='text']").value;
+    let pass = document.querySelector("input[type='password']").value;
+    
+    let usuarioCorrecto = "admin";
+    let contraseñaCorrecta = "1234";
+
+    if(user === usuarioCorrecto && pass === contraseñaCorrecta){
+        window.location.href = "menu.html";
+    }else{
+        alert("Usuario o contraseña incorrectos");
+    }
+}
+</script>
+
+</head>
+
+<body class="bg">
+
+<header>
+    <div class="header-left">
+        <img src="/img/logo-sin.png" class="logo">
+        <h2>El Progreso</h2>
+    </div>
+</header>
+
+<div class="container">
+<div class="content">
+
+    <div class="panel">
+        <form onsubmit="login(event)">
+
+            <h3>Iniciar Sesión</h3>
+
+            <input type="text" placeholder="Usuario" required>
+            <input type="password" placeholder="Contraseña" required>
+
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+
+            <p>¿No tienes una cuenta? <a href="registro.html">Registrate</a></p>
+
+        </form>
+    </div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 El Progreso</p>
+</footer>
+
+</body>
+</html>

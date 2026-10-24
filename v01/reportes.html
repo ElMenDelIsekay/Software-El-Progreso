@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Reportes</title>
+<link rel="stylesheet" href="/css/estilos.css">
+
+<script>
+function generarReporte(e){
+    e.preventDefault();
+
+    let tabla = document.querySelector("table");
+
+    let fila = tabla.insertRow();
+
+    fila.innerHTML = `
+        <td>Producto Nuevo</td>
+        <td>10</td>
+        <td>${new Date().toISOString().split("T")[0]}</td>
+    `;
+
+    alert("Reporte actualizado");
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="/img/logo-sin.png" class="logo">
+        <h2>Reportes</h2>
+    </div>
+
+    <div class="header-right">
+        <a href="menu.html" class="btn btn-secondary">Volver</a>
+    </div>
+</header>
+
+<div class="container">
+<div class="content">
+
+    <div class="panel">
+
+        <h3>Resumen General</h3>
+
+        <div class="menu">
+            <div class="card">
+                <p>Total productos</p>
+                <h2>20</h2>
+            </div>
+
+            <div class="card">
+                <p>Stock bajo</p>
+                <h2>3</h2>
+            </div>
+
+            <div class="card">
+                <p>Movimientos hoy</p>
+                <h2>5</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>Generar Reporte</h3>
+
+        <form onsubmit="generarReporte(event)">
+
+            <label>Tipo de reporte</label>
+            <select>
+                <option>Inventario</option>
+                <option>Movimientos</option>
+                <option>Mal Funcionamiento</option>
+            </select>
+
+            <label>Fecha inicio</label>
+            <input type="date">
+
+            <label>Fecha fin</label>
+            <input type="date">
+            
+            <label>Observaciones</label>
+            <input type="text">
+
+            <div class="btn-group">
+                <button class="btn btn-primary">Generar</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>Resultados</h3>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Fecha</th>
+                </tr>
+                <tr>
+                    <td>Taladro</td>
+                    <td>5</td>
+                    <td>2026-03-25</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 El Progreso</p>
+</footer>
+
+</body>
+</html>

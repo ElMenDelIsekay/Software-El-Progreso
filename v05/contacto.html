@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>El Progreso — Contacto</title>
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="MenuPrincipal.html">
+    <img src="img/logo.png" alt="Logo" class="imagen-logo">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar producto, proveedor...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">JP</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu" href="index.html">📊 Panel de control</a>
+    <a class="item-menu" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu" href="pedidos.html">🚚 Pedidos</a>
+    <a class="item-menu" href="servicios.html">🛠️ Servicios</a>
+    <a class="item-menu" href="nosotros.html">📌 Acerca de Nosotros</a>
+    <a class="item-menu activo" href="contacto.html">💬 Contactanos</a>
+    <a class="item-menu" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="login.html">🚪 Cerrar Sesión</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Contacto</h1>
+
+    <!-- Tarjetas de información de contacto -->
+    <div class="fila-tarjetas">
+      <!-- Horarios -->
+      <div class="tarjeta">
+        <h3>Horarios de Atención</h3>
+        <p><strong>Atención General</strong><br>Lunes - Viernes<br>8:00 AM - 5:00 PM</p>
+        <hr>
+        <p><strong>Soporte Técnico</strong><br>7:00 AM - 6:00 PM</p>
+        <hr>
+        <p><strong>Atención Prioritaria</strong><br>Sábados 8:00 AM - 12:00 PM</p>
+      </div>
+
+      <!-- Correos -->
+      <div class="tarjeta">
+        <h3>Correos Electrónicos</h3>
+        <p>administracion@elprogreso.com</p>
+        <hr>
+        <p>soporte@elprogreso.com</p>
+        <hr>
+        <p>informacion@elprogreso.com</p>
+      </div>
+
+      <!-- Teléfonos -->
+      <div class="tarjeta">
+        <h3>📞 Líneas Telefónicas</h3>
+        <p><strong>Oficina Principal</strong><br>+57 601 000 0000</p>
+        <hr>
+        <p><strong>Soporte 24/7</strong><br>+57 300 111 1111</p>
+        <hr>
+        <p><strong>WhatsApp Business</strong><br>+57 302 222 2222</p>
+      </div>
+    </div>
+
+    <!-- Mapa de ubicación -->
+    <div class="tarjeta" style="margin-bottom: 20px;">
+      <h3>Nuestra Ubicación</h3>
+  
+      <iframe
+          src="https://www.google.com/maps/embed?pb=!4v1781054996732!6m8!1m7!1sQuQnEhxnDjCTTAIRF6ySCw!2m2!1d7.917160266566428!2d-72.50971630432203!3f199.2937446258486!4f4.441335528241439!5f0.7820865974627469"
+          width="100%"
+          height="300"
+          style="border:0; border-radius:12px;"
+          allowfullscreen=""
+          loading="lazy">
+      </iframe>
+  </div>
+
+    <!-- Formulario de contacto -->
+    <div class="tarjeta-fieldset">
+      <form>
+        <fieldset>
+          <legend>Formulario de Contacto</legend>
+
+          <div class="fila-dos-config">
+            <div class="campo-config">
+              <label>Nombre completo *</label>
+              <input type="text" placeholder="Ingrese su nombre">
+            </div>
+            <div class="campo-config">
+              <label>Correo electrónico *</label>
+              <input type="email" placeholder="usuario@elprogreso.com">
+            </div>
+          </div>
+
+          <div class="fila-dos-config">
+            <div class="campo-config">
+              <label>Teléfono / Celular</label>
+              <input type="tel" placeholder="(+57) 300 000 0000">
+            </div>
+            <div class="campo-config">
+              <label>Categoría *</label>
+              <select class="filtro-select" style="width: 100%;">
+                <option>Seleccione una categoría</option>
+                <option>Información de productos</option>
+                <option>Facturación y pagos</option>
+                <option>Horarios y citas</option>
+                <option>Soporte técnico</option>
+                <option>Sugerencias o PQRS</option>
+                <option>Alianzas comerciales</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="campo-config">
+            <label>Asunto *</label>
+            <input type="text" placeholder="Breve descripción del motivo de contacto">
+          </div>
+
+          <div class="campo-config">
+            <label>Mensaje / Consulta *</label>
+            <textarea rows="4" placeholder="Escriba aquí su mensaje de forma detallada..." style="resize: vertical;"></textarea>
+          </div>
+
+          <div class="opcion-config" style="border-bottom: none; padding-top: 0;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 16px; height: 16px; cursor: pointer;"> 
+              <span style="font-size: 12px;">Deseo recibir información de novedades y promociones</span>
+            </label>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+            <button type="reset" class="boton-secundario">Limpiar formulario</button>
+            <button type="submit" class="boton-primario" style="width: auto; padding: 10px 24px; margin-bottom: 0;">Enviar mensaje</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="tarjeta" style="text-align: center;">
+      <h3>Síguenos en Redes Sociales</h3>
+      <div style="display: flex; justify-content: center; gap: 24px; margin-top: 12px;">
+        <span style="font-size: 24px; cursor: pointer;">📘</span>
+        <span style="font-size: 24px; cursor: pointer;">🐦</span>
+        <span style="font-size: 24px; cursor: pointer;">📸</span>
+        <span style="font-size: 24px; cursor: pointer;">💼</span>
+        <span style="font-size: 24px; cursor: pointer;">▶️</span>
+      </div>
+      <p style="margin-top: 12px; font-size: 12px; color: #6b7280;">@ElProgresoOficial</p>
+    </div>
+  </main>
+</div>
+
+<div class="barra-naranja"></div>
+<footer>
+       <pre>El Progreso © 2026. <br> Sistema de Gestión de Inventario diseñado para optimizar el control de productos, mejorar la organización y facilitar la toma de decisiones. </pre>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Movimientos</title>
+<link rel="stylesheet" href="/css/estilos.css">
+
+<script>
+function registrarMovimiento(e){
+    e.preventDefault();
+
+    let tabla = document.getElementById("tabla");
+
+    if(!tabla) return;
+
+    let fila = tabla.insertRow();
+
+    fila.innerHTML = `
+        <td>Entrada</td>
+        <td>Producto X</td>
+        <td>1</td>
+        <td>
+            <button class="btn btn-secondary" onclick="editarMovimiento(this)">Editar</button>
+            <button class="btn btn-danger" onclick="eliminarMovimiento(this)">Eliminar</button>
+        </td>
+    `;
+
+    alert("Movimiento registrado");
+}
+
+function eliminarMovimiento(btn){
+    btn.closest("tr").remove();
+}
+
+function editarMovimiento(btn){
+    let fila = btn.closest("tr");
+    let producto = fila.children[1];
+
+    let nuevo = prompt("Producto:", producto.innerText);
+    if(nuevo){
+        producto.innerText = nuevo;
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="/img/logo-sin.png" class="logo">
+        <h2>Movimientos</h2>
+    </div>
+    <div class="header-right">
+        <a href="menu.html" class="btn btn-secondary">Volver</a>
+    </div>
+</header>
+
+<div class="container">
+<div class="content">
+
+    <div class="panel">
+
+        <form onsubmit="registrarMovimiento(event)">
+
+            <select>
+                <option>Entrada</option>
+                <option>Salida</option>
+            </select>
+
+            <input type="text" placeholder="Producto" required>
+            <input type="number" placeholder="Cantidad" required>
+
+            <div class="btn-group">
+                <button class="btn btn-primary">Registrar</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 El Progreso</p>
+</footer>
+
+</body>
+</html>

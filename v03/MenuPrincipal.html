@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Panel de Control</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="#">
+    <img src="img/logo.png" alt="Logo" class="imagen-logo">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar producto, proveedor...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">JP</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu activo" href="#">📊 Panel de control</a>
+    <a class="item-menu" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu" href="pedidos.html">🚚 Pedidos</a>
+    <a class="item-menu" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="index.html">🚪 Cerrar Sesion</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Panel de Control</h1>
+
+    <!-- Tarjetas principales -->
+    <div class="fila-tarjetas">
+      <div class="tarjeta">
+        <h3>Resumen de Ventas</h3>
+        <p><strong>$12'000.000</strong> - Ventas</p>
+        <p><strong>$10'200.000</strong> - Ingresos</p>
+        <p><strong>$2'250.000</strong> - Beneficio</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>Resumen de Compras</h3>
+        <p><strong>$8'920.000</strong> - Compras</p>
+        <p><strong>$7'950.000</strong> - Coste</p>
+        <p><strong>$120.000</strong> - Cancelaciones</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>Inventario</h3>
+        <p><strong>1.240</strong> - Disponible</p>
+        <p><strong>380</strong> - Por recibir</p>
+        <p><strong>17</strong> - Proveedores</p>
+        <p><strong>14</strong> - Categorías</p>
+      </div>
+    </div>
+
+    <!-- Tabla simple -->
+    <div class="tarjeta">
+      <h3>Últimos Pedidos</h3>
+      <table class="tabla-simple">
+        <thead>
+          <tr><th>Producto</th><th>Cantidad</th><th>Estado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Producto A</td><td>10</td><td>Entregado</td></tr>
+          <tr><td>Producto B</td><td>5</td><td>Pendiente</td></tr>
+          <tr><td>Producto C</td><td>8</td><td>Enviado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inventario</title>
+<link rel="stylesheet" href="/css/estilos.css">
+
+<script>
+function agregarProducto(){
+    let tabla = document.getElementById("tabla");
+    let fila = tabla.insertRow();
+
+    fila.innerHTML = `
+        <td>Nuevo</td>
+        <td>1</td>
+        <td>$0</td>
+        <td>Nuevo</td>
+        <td>
+            <button class="btn btn-secondary" onclick="editarFila(this)">Editar</button>
+            <button class="btn btn-danger" onclick="eliminarFila(this)">Eliminar</button>
+        </td>
+    `;
+}
+
+function eliminarFila(btn){
+    if(confirm("¿Eliminar producto?")){
+        btn.closest("tr").remove();
+    }
+}
+
+function editarFila(btn){
+    let fila = btn.closest("tr");
+    let nombre = fila.children[0];
+
+    let nuevo = prompt("Nuevo nombre:", nombre.innerText);
+    if(nuevo){
+        nombre.innerText = nuevo;
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="/img/logo-sin.png" class="logo">
+        <h2>Inventario</h2>
+    </div>
+    <div class="header-right">
+        <a href="menu.html" class="btn btn-secondary">Volver</a>
+    </div>
+</header>
+
+<div class="container">
+<div class="content">
+
+    <div class="panel">
+
+        <input type="text" id="buscador" placeholder="Buscar..." onkeyup="filtrar()">
+        <button class="btn btn-primary" onclick="agregarProducto()">➕ Agregar</button>
+        <div class="table-container">
+            <table id="tabla">
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr>
+                    <td>Taladro</td>
+                    <td>5</td>
+                    <td>$200</td>
+                    <td>Disponible</td>
+                    
+                </tr>
+                <tr>
+                    <td>Martillo</td>
+                    <td>2</td>
+                    <td>$50</td>
+                    <td>Bajo stock</td>
+                </tr>
+                
+            </table>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 El Progreso</p>
+</footer>
+
+</body>
+</html>
