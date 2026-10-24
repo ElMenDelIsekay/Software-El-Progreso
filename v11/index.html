@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" href="assets/img/logo.png?v=2">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Iniciar sesión</title>
+  <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+
+<div class="contenedor-login">
+  <div class="barra-superior"></div>
+
+  <div class="panel-izquierdo">
+    <div class="contenido-izquierdo">
+      <img src="assets/img/logo.png" alt="Logo" class="logo-cubo">
+      <p class="nombre-marca">EL PROGRESO</p>
+    </div>
+    <div class="banda-naranja"></div>
+  </div>
+
+  <div class="panel-derecho">
+    <h1 class="titulo-login">Inicia sesión</h1>
+    <p class="subtitulo-login">¡Bienvenido de nuevo! Por favor, ingresa tus datos.</p>
+
+    <form action="usuario.php" method="POST">
+      <div class="grupo-campo">
+        <label for="nombre">Usuario</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu usuario" required>
+      </div>
+
+      <div class="grupo-campo">
+        <label for="pa">Contraseña</label>
+        <input type="password" id="pa" name="pa" placeholder="Ingresa tu contraseña" required>
+      </div>
+
+      <button type="submit" class="boton-primario">Iniciar sesión</button>
+    </form>
+
+    <p class="aviso-interno">🔒 Sistema de uso interno. Acceso restringido al personal autorizado.</p>
+  </div>
+</div>
+
+</body>
+</html>

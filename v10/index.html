@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Iniciar sesión</title>
+  <style>
+    /* =================
+       RESET global
+       ================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ============================================
+       CONTENEDOR PRINCIPAL
+       ============================================ */
+    .contenedor-login {
+      display: flex;
+      width: 860px;
+      min-height: 520px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      background: #fff;
+      position: relative;
+    }
+
+    .barra-superior {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: #0D2252;
+      z-index: 10;
+    }
+
+    /* ============================================
+       PANEL IZQUIERDO
+       ============================================ */
+    .panel-izquierdo {
+      width: 42%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      border-right: 1px solid #e0e0e0;
+      padding: 60px 32px 0 32px;
+    }
+
+    .contenido-izquierdo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .logo-cubo {
+      width: 85px;
+      height: 85px;
+      object-fit: contain;
+    }
+
+    .nombre-marca {
+      font-size: 21px;
+      font-weight: 600;
+      color: #0D2252;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    .banda-naranja {
+      width: 100%;
+      background: #FF6B1A;
+      height: 68px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       PANEL DERECHO
+       ============================================ */
+    .panel-derecho {
+      width: 58%;
+      padding: 60px 48px 40px 48px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .titulo-login {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .subtitulo-login {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
+
+    /* ============================================
+       CAMPOS DEL FORMULARIO
+       ============================================ */
+    .grupo-campo {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 18px;
+    }
+
+    .grupo-campo label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .grupo-campo input {
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-size: 14px;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .grupo-campo input:focus {
+      border-color: #1D6ECC;
+      box-shadow: 0 0 0 3px rgba(29,110,204,0.15);
+    }
+
+    /* ============================================
+       BOTÓN DE INGRESO
+       ============================================ */
+    .boton-primario {
+      width: 100%;
+      padding: 13px;
+      background: #1D6ECC;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .boton-primario:hover {
+      background: #1558A8;
+      transform: translateY(-1px);
+    }
+
+    .boton-primario:active {
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       AVISO INTERNO
+       ============================================ */
+    .aviso-interno {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #9ca3af;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 900px) {
+      .contenedor-login {
+        flex-direction: column;
+        width: 95%;
+        min-height: auto;
+      }
+
+      .panel-izquierdo {
+        width: 100%;
+        padding: 30px 20px 0 20px;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .contenido-izquierdo {
+        padding-bottom: 20px;
+      }
+
+      .logo-cubo {
+        width: 65px;
+        height: 65px;
+      }
+
+      .nombre-marca {
+        font-size: 18px;
+        letter-spacing: 3px;
+      }
+
+      .banda-naranja {
+        height: 40px;
+      }
+
+      .panel-derecho {
+        width: 100%;
+        padding: 30px 24px 30px 24px;
+      }
+
+      .titulo-login {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="contenedor-login">
+  <div class="barra-superior"></div>
+
+  <!-- Panel izquierdo -->
+  <div class="panel-izquierdo">
+    <div class="contenido-izquierdo">
+      <img src="img/logo.png" alt="Logo" class="logo-cubo">
+      <p class="nombre-marca">EL PROGRESO</p>
+    </div>
+    <div class="banda-naranja"></div>
+  </div>
+
+  <!-- Panel derecho -->
+  <div class="panel-derecho">
+    <h1 class="titulo-login">Inicia sesión</h1>
+    <p class="subtitulo-login">¡Bienvenido de nuevo! Por favor, ingresa tus datos.</p>
+
+    <form action="usuario.php" method="POST">
+      <div class="grupo-campo">
+        <label for="nombre">Usuario</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu usuario" required>
+      </div>
+
+      <div class="grupo-campo">
+        <label for="pa">Contraseña</label>
+        <input type="password" id="pa" name="pa" placeholder="Ingresa tu contraseña" required>
+      </div>
+
+      <button type="submit" class="boton-primario">Iniciar sesión</button>
+    </form>
+
+    <p class="aviso-interno">🔒 Sistema de uso interno. Acceso restringido al personal autorizado.</p>
+  </div>
+</div>
+
+</body>
+</html>
