@@ -1,0 +1,45 @@
+CREATE DATABASE bodega;
+USE bodega;
+
+CREATE TABLE cliente (
+    cedula INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE pedido (
+    id_pedido INT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    id_cedula INT NOT NULL,
+    FOREIGN KEY (id_cedula)
+    REFERENCES cliente(cedula)
+);
+
+CREATE TABLE usuario (
+    usuario VARCHAR(100) NOT NULL,
+    contra VARCHAR(100) NOT NULL
+);
+
+DROP TABLE usuario; // borra tabla completa
+
+TRUNCATE TABLE cliente; --- elimina tuplas
+
+TRUNCATE TABLE pedido; //borra tuplas
+DELETE FROM cliente; --- cuanto tiene relaciones
+
+-- Insertar 5 clientes
+INSERT INTO cliente (cedula, nombre, email) VALUES
+(1, 'carlos', 'carlos.m@gmail.com'),
+(2, 'lucia', 'lucia.r@gmail.com'),
+(3, 'pedro', 'pedro.s@gmail.com'),
+(4, 'ana', 'ana.l@gmail.com'),
+(5, 'luis', 'luis.p@gmail.com');
+
+-- Insertar 5 pedidos
+INSERT INTO pedido (id_pedido, fecha, total, id_cedula) VALUES
+(101, '2026-09-01', 120000, 1),
+(102, '2026-09-03', 75000, 2),
+(103, '2026-09-05', 200000, 3),
+(104, '2026-09-07', 88000, 4),
+(105, '2026-09-10', 110000, 5);

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Progreso — Pedidos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="barra-navegacion">
+  <a class="logo-empresa" href="MenuPrincipal.html">
+    <img  src="img/logo.png" alt="Logo" class="imagen-logo" hrf="MenuPrincipal.html">
+    <span>EL PROGRESO</span>
+  </a>
+  <div class="buscador">
+    <input type="text" placeholder="Buscar pedido...">
+  </div>
+  <div class="zona-derecha">
+    <div class="avatar">JP</div>
+  </div>
+</nav>
+<div class="barra-naranja"></div>
+
+<div class="contenedor-principal">
+  <aside class="barra-lateral">
+    <a class="item-menu" href="MenuPrincipal.html">📊 Panel de control</a>
+    <a class="item-menu" href="inventario.html">📦 Inventario</a>
+    <a class="item-menu" href="reportes.html">📈 Reportes</a>
+    <a class="item-menu" href="proveedores.html">🤝 Proveedores</a>
+    <a class="item-menu activo" href="pedidos.html">🚚 Pedidos</a>
+    <a class="item-menu" href="configuracion.html">⚙️ Configuración</a>
+    <a class="item-menu" href="index.html">🚪 Cerrar Sesion</a>
+  </aside>
+
+  <main class="contenido-principal">
+    <h1 class="titulo-pagina">Pedidos</h1>
+
+    <!-- Resumen -->
+    <div class="fila-tarjetas">
+      <div class="tarjeta">
+        <h3>Pedidos Totales</h3>
+        <p class="numero-grande">1.250</p>
+        <p>Este mes</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Pendientes</h3>
+        <p class="numero-grande">45</p>
+        <p>Por entregar</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Entregados</h3>
+        <p class="numero-grande">1.180</p>
+        <p>Completados</p>
+      </div>
+    </div>
+
+    <!-- Tabla de pedidos -->
+    <div class="tarjeta">
+      <div class="encabezado-tabla">
+        <h3>Últimos Pedidos</h3>
+        <button class="boton-secundario">+ Nuevo Pedido</button>
+      </div>
+      <table class="tabla-simple">
+        <thead>
+          <tr><th># Pedido</th><th>Cliente</th><th>Fecha</th><th>Total</th><th>Estado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>#F001</td><td>Construcciones López</td><td>2024-06-01</td><td>$145.000</td><td class="estado-entregado">Entregado</td></tr>
+          <tr><td>#F002</td><td>Taller El Mecánico</td><td>2024-06-02</td><td>$278.500</td><td class="estado-enviado">Enviado</td></tr>
+          <tr><td>#F003</td><td>Maderera Central</td><td>2024-06-02</td><td>$532.000</td><td class="estado-pendiente">Pendiente</td></tr>
+          <tr><td>#F004</td><td>Constructora Norte</td><td>2024-06-03</td><td>$823.000</td><td class="estado-entregado">Entregado</td></tr>
+          <tr><td>#F005</td><td>Ferretodo S.A.</td><td>2024-06-03</td><td>$156.800</td><td class="estado-enviado">Enviado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<div class="barra-naranja"></div>
+<footer>
+       <pre>El Progreso © 2026. <br> Sistema de Gestión de Inventario diseñado para optimizar el control de productos, mejorar la organización y facilitar la toma de decisiones. </pre>
+</footer>
+</body>
+</html>
